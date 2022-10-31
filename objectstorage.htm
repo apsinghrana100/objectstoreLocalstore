@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let count=0;
+        const myobj={
+    name:"maayk",
+    age:22
+    };
+    
+    let serialization=JSON.stringify(myobj);
+    localStorage.setItem("myobj"+ count,serialization);
+    count++;
+    let deserilization=JSON.parse(localStorage.getItem("myobj"));
+    console.log(deserilization);
+
+    </script>
+    <!--Big problem of the app - Everytime you add a new user, the older user gets removed.
+
+Why does this happen any ideas. Write the reason in the answer.-->
+
+<!--The reason is that ,everytime its take same key for storing,that's its overwrite the value everytime.
+    so if we want to store multiple data ,we need to use unique key-->
+    <!--solution
+    var count = getCount(); 
+//get count will be your function to get the count of users 
+localStorage.setItem("users" + count, JSON.stringify(users))
+    -->
+</body>
+</html>
